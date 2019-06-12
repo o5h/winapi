@@ -249,8 +249,8 @@ func SetFocus(hwnd winapi.HWND) winapi.HWND {
 	return winapi.HWND(r0)
 }
 
-func SetWindowPos(hwnd winapi.HWND, hWndInsertAfter winapi.HWND, x int32, y int32, cx int32, cy int32, uFlags winapi.UINT) (bool, error) {
-	r0, _, err := procSetWindowPos.Call(
+func SetWindowPos(hwnd winapi.HWND, hWndInsertAfter winapi.HWND, x int32, y int32, cx int32, cy int32, uFlags winapi.UINT) bool {
+	r0, _, _ := procSetWindowPos.Call(
 		uintptr(hwnd),
 		uintptr(hWndInsertAfter),
 		uintptr(x),
@@ -258,7 +258,7 @@ func SetWindowPos(hwnd winapi.HWND, hWndInsertAfter winapi.HWND, x int32, y int3
 		uintptr(cx),
 		uintptr(cy),
 		uintptr(uFlags))
-	return bool(r0 != 0), err
+	return r0 != 0
 }
 
 func GetDC(hwnd winapi.HWND) (winapi.HDC, error) {
