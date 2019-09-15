@@ -58,3 +58,9 @@ func GET_X_LPARAM(lParam LPARAM) int32 {
 func GET_Y_LPARAM(lParam LPARAM) int32 {
 	return int32(HIWORD(DWORD(lParam)))
 }
+
+const WHEEL_DELTA = 120
+
+func GET_WHEEL_DELTA_WPARAM(wParam WPARAM) int16 {
+	return int16(HIWORD(DWORD(wParam)))
+}
