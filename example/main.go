@@ -1,23 +1,17 @@
-// +build windows
-
 package main
 
 import (
 	"runtime"
 	"unsafe"
 
-	"golang.org/x/sys/windows"
-
 	"github.com/o5h/winapi"
 	"github.com/o5h/winapi/kernel32"
 	"github.com/o5h/winapi/user32"
+	"golang.org/x/sys/windows"
 )
 
-func init() {
-	runtime.LockOSThread()
-}
-
 func main() {
+	runtime.LockOSThread()
 	hwnd := CreateWindow("Example 1", WndProc)
 	user32.ShowWindow(hwnd, user32.SW_SHOW)
 	user32.UpdateWindow(hwnd)
@@ -35,6 +29,7 @@ func main() {
 			user32.DispatchMessageW(&m)
 		}
 	}
+
 }
 
 func CreateWindow(title string, wndProc winapi.WindowProc) (hwnd winapi.HWND) {

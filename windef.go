@@ -1,4 +1,4 @@
-// +build windows
+//go:build windows
 
 package winapi
 
@@ -43,24 +43,14 @@ type WindowProc func(HWND, UINT, WPARAM, LPARAM) LRESULT
 
 type WNDPROC uintptr
 
-func LOWORD(dword DWORD) WORD {
-	return WORD(dword)
-}
+func LOWORD(dword DWORD) WORD { return WORD(dword) }
 
-func HIWORD(dword DWORD) WORD {
-	return WORD(dword >> 16)
-}
+func HIWORD(dword DWORD) WORD { return WORD(dword >> 16) }
 
-func GET_X_LPARAM(lParam LPARAM) int32 {
-	return int32(LOWORD(DWORD(lParam)))
-}
+func GET_X_LPARAM(lParam LPARAM) int32 { return int32(LOWORD(DWORD(lParam))) }
 
-func GET_Y_LPARAM(lParam LPARAM) int32 {
-	return int32(HIWORD(DWORD(lParam)))
-}
+func GET_Y_LPARAM(lParam LPARAM) int32 { return int32(HIWORD(DWORD(lParam))) }
 
 const WHEEL_DELTA = 120
 
-func GET_WHEEL_DELTA_WPARAM(wParam WPARAM) int16 {
-	return int16(HIWORD(DWORD(wParam)))
-}
+func GET_WHEEL_DELTA_WPARAM(wParam WPARAM) int16 { return int16(HIWORD(DWORD(wParam))) }

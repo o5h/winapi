@@ -1,4 +1,4 @@
-// +build windows
+//go:build windows
 
 package user32
 
@@ -31,7 +31,7 @@ func RegisterClassExW(wndclass *WNDCLASSEX) (winapi.ATOM, error) {
 
 }
 
-//Window Styles
+// Window Styles
 const (
 	WS_OVERLAPPED   = 0
 	WS_POPUP        = 0x80000000

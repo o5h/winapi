@@ -1,4 +1,4 @@
-// +build windows
+//go:build windows
 
 package user32
 
@@ -76,7 +76,7 @@ type CREATESTRUCTW struct {
 	X            int
 	Style        winapi.LONG
 	Name         winapi.LPCWSTR
-	lass         winapi.LPCWSTR
+	Class        winapi.LPCWSTR
 	ExStyle      winapi.DWORD
 }
 
@@ -119,7 +119,6 @@ func DestroyWindow(hwnd winapi.HWND) (succeed bool, err error) {
 
 func PostQuitMessage(exitcode int32) {
 	procPostQuitMessage.Call(uintptr(exitcode))
-	return
 }
 
 type Point struct {
