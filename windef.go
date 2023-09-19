@@ -3,8 +3,6 @@
 package winapi
 
 import (
-	"unsafe"
-
 	"golang.org/x/sys/windows"
 )
 
@@ -29,7 +27,7 @@ type UINT uint32
 type UINT_PTR uintptr
 type WORD uint16
 type WPARAM UINT_PTR
-type LPVOID unsafe.Pointer
+type LPVOID uintptr
 type LONG int32
 type HKL HANDLE
 

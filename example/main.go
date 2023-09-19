@@ -61,7 +61,7 @@ func CreateWindow(title string, wndProc winapi.WindowProc) (hwnd winapi.HWND) {
 		user32.CW_USEDEFAULT,
 		user32.CW_USEDEFAULT,
 		user32.CW_USEDEFAULT,
-		winapi.HWND(0), winapi.HMENU(0), winapi.HINSTANCE(mh), winapi.LPVOID(nil))
+		winapi.HWND(0), winapi.HMENU(0), winapi.HINSTANCE(mh), winapi.LPVOID(0))
 	return
 }
 
