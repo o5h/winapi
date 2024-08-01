@@ -93,6 +93,7 @@ const (
 	WM_SETFONT           = winapi.UINT(0x0030)
 	WM_GETFONT           = winapi.UINT(0x0031)
 	WM_COMPAREITEM       = winapi.UINT(0x0039)
+	WM_WINDOWPOSCHANGING = winapi.UINT(0x0046)
 	WM_WINDOWPOSCHANGED  = winapi.UINT(0x0047)
 	WM_NOTIFY            = winapi.UINT(0x004E)
 	WM_NCCALCSIZE        = winapi.UINT(0x0083)
@@ -261,14 +262,14 @@ func SetWindowPos(hwnd winapi.HWND, hWndInsertAfter winapi.HWND, x int32, y int3
 	return r0 != 0
 }
 
-func GetDC(hwnd winapi.HWND) (winapi.HDC, error) {
-	r0, _, err := procGetDC.Call(uintptr(hwnd))
-	return winapi.HDC(r0), err
+func GetDC(hwnd winapi.HWND) winapi.HDC {
+	r0, _, _ := procGetDC.Call(uintptr(hwnd))
+	return winapi.HDC(r0)
 }
 
-func ReleaseDC(hwnd winapi.HWND, dc winapi.HDC) (int, error) {
-	r0, _, err := procReleaseDC.Call(uintptr(hwnd), uintptr(dc))
-	return int(r0), err
+func ReleaseDC(hwnd winapi.HWND, dc winapi.HDC) int {
+	r0, _, _ := procReleaseDC.Call(uintptr(hwnd), uintptr(dc))
+	return int(r0)
 }
 
 func GetWindowRect(hwnd winapi.HWND, rect *Rect) (bool, error) {
