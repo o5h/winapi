@@ -6,58 +6,60 @@ import "golang.org/x/sys/windows"
 
 var (
 	dll                   *windows.DLL
-	procLoadCursorW       *windows.Proc
-	procLoadIconW         *windows.Proc
-	procRegisterClassExW  *windows.Proc
 	procCreateWindowExW   *windows.Proc
-	procShowWindow        *windows.Proc
-	procUpdateWindow      *windows.Proc
-	procSetFocus          *windows.Proc
 	procDefWindowProcW    *windows.Proc
 	procDestroyWindow     *windows.Proc
-	procPostQuitMessage   *windows.Proc
-	procGetMessageW       *windows.Proc
-	procTranslateMessage  *windows.Proc
 	procDispatchMessageW  *windows.Proc
-	procSetWindowPos      *windows.Proc
-	procGetWindowRect     *windows.Proc
 	procGetDC             *windows.Proc
-	procReleaseDC         *windows.Proc
-	procShowCursor        *windows.Proc
-	procPeekMessageW      *windows.Proc
-	procSendMessageW      *windows.Proc
-	procSetWindowLongPtrW *windows.Proc
-	procGetWindowLongPtrW *windows.Proc
-	procMapVirtualKeyExW  *windows.Proc
 	procGetKeyboardLayout *windows.Proc
+	procGetMessageW       *windows.Proc
+	procGetSystemMetrics  *windows.Proc
+	procGetWindowLongPtrW *windows.Proc
+	procGetWindowRect     *windows.Proc
+	procLoadCursorW       *windows.Proc
+	procLoadIconW         *windows.Proc
+	procMapVirtualKeyExW  *windows.Proc
 	procMapVirtualKeyW    *windows.Proc
+	procPeekMessageW      *windows.Proc
+	procPostQuitMessage   *windows.Proc
+	procRegisterClassExW  *windows.Proc
+	procReleaseDC         *windows.Proc
+	procSendMessageW      *windows.Proc
+	procSetFocus          *windows.Proc
+	procSetWindowLongPtrW *windows.Proc
+	procSetWindowPos      *windows.Proc
+	procShowCursor        *windows.Proc
+	procShowWindow        *windows.Proc
+	procTranslateMessage  *windows.Proc
+	procUpdateWindow      *windows.Proc
 )
 
 func init() {
 	dll = windows.MustLoadDLL("user32.dll")
-	procLoadIconW = dll.MustFindProc("LoadIconW")
-	procLoadCursorW = dll.MustFindProc("LoadCursorW")
-	procRegisterClassExW = dll.MustFindProc("RegisterClassExW")
 	procCreateWindowExW = dll.MustFindProc("CreateWindowExW")
-	procShowWindow = dll.MustFindProc("ShowWindow")
-	procUpdateWindow = dll.MustFindProc("UpdateWindow")
-	procSetFocus = dll.MustFindProc("SetFocus")
 	procDefWindowProcW = dll.MustFindProc("DefWindowProcW")
 	procDestroyWindow = dll.MustFindProc("DestroyWindow")
-	procPostQuitMessage = dll.MustFindProc("PostQuitMessage")
-	procGetMessageW = dll.MustFindProc("GetMessageW")
-	procTranslateMessage = dll.MustFindProc("TranslateMessage")
 	procDispatchMessageW = dll.MustFindProc("DispatchMessageW")
-	procSetWindowPos = dll.MustFindProc("SetWindowPos")
-	procGetWindowRect = dll.MustFindProc("GetWindowRect")
 	procGetDC = dll.MustFindProc("GetDC")
-	procReleaseDC = dll.MustFindProc("ReleaseDC")
-	procShowCursor = dll.MustFindProc("ShowCursor")
-	procPeekMessageW = dll.MustFindProc("PeekMessageW")
-	procSendMessageW = dll.MustFindProc("SendMessageW")
-	procSetWindowLongPtrW = dll.MustFindProc("SetWindowLongPtrW")
-	procGetWindowLongPtrW = dll.MustFindProc("GetWindowLongPtrW")
-	procMapVirtualKeyExW = dll.MustFindProc("MapVirtualKeyExW")
 	procGetKeyboardLayout = dll.MustFindProc("GetKeyboardLayout")
+	procGetMessageW = dll.MustFindProc("GetMessageW")
+	procGetSystemMetrics = dll.MustFindProc("GetSystemMetrics")
+	procGetWindowLongPtrW = dll.MustFindProc("GetWindowLongPtrW")
+	procGetWindowRect = dll.MustFindProc("GetWindowRect")
+	procLoadCursorW = dll.MustFindProc("LoadCursorW")
+	procLoadIconW = dll.MustFindProc("LoadIconW")
+	procMapVirtualKeyExW = dll.MustFindProc("MapVirtualKeyExW")
 	procMapVirtualKeyW = dll.MustFindProc("MapVirtualKeyW")
+	procPeekMessageW = dll.MustFindProc("PeekMessageW")
+	procPostQuitMessage = dll.MustFindProc("PostQuitMessage")
+	procRegisterClassExW = dll.MustFindProc("RegisterClassExW")
+	procReleaseDC = dll.MustFindProc("ReleaseDC")
+	procSendMessageW = dll.MustFindProc("SendMessageW")
+	procSetFocus = dll.MustFindProc("SetFocus")
+	procSetWindowLongPtrW = dll.MustFindProc("SetWindowLongPtrW")
+	procSetWindowPos = dll.MustFindProc("SetWindowPos")
+	procShowCursor = dll.MustFindProc("ShowCursor")
+	procShowWindow = dll.MustFindProc("ShowWindow")
+	procTranslateMessage = dll.MustFindProc("TranslateMessage")
+	procUpdateWindow = dll.MustFindProc("UpdateWindow")
 }

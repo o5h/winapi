@@ -373,3 +373,30 @@ func GetKeyboardLayout(idThread winapi.DWORD) winapi.HKL {
 	r0, _, _ := procGetKeyboardLayout.Call(uintptr(idThread))
 	return winapi.HKL(r0)
 }
+
+/* GetSystemMetrics indices*/
+const (
+	SM_CXSCREEN     = 0
+	SM_CYSCREEN     = 1
+	SM_CXVSCROLL    = 2
+	SM_CYHSCROLL    = 3
+	SM_CYCAPTION    = 4
+	SM_CXBORDER     = 5
+	SM_CYBORDER     = 6
+	SM_CXDLGFRAME   = 7
+	SM_CYDLGFRAME   = 8
+	SM_CXFIXEDFRAME = SM_CXDLGFRAME
+	SM_CYFIXEDFRAME = SM_CYDLGFRAME
+	SM_CYMENU       = 15
+	SM_CYVSCROLL    = 20
+	SM_CXHSCROLL    = 21
+	SM_CXFRAME      = 32
+	SM_CYFRAME      = 33
+	SM_CXSIZEFRAME  = SM_CXFRAME
+	SM_CYSIZEFRAME  = SM_CYFRAME
+)
+
+func GetSystemMetrics(nIndex winapi.INT) winapi.INT {
+	r0, _, _ := procGetSystemMetrics.Call(uintptr(nIndex))
+	return winapi.INT(r0)
+}

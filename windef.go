@@ -23,6 +23,7 @@ type LONG_PTR uintptr
 type LPARAM LONG_PTR
 type LPCWSTR *uint16
 type LRESULT LONG_PTR
+type INT uint32
 type UINT uint32
 type UINT_PTR uintptr
 type WORD uint16
